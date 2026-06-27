@@ -1,0 +1,357 @@
+// Apple HIG–inspired visual language (iOS Settings / iCloud+)
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.header > h1 {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin: 4px 0 12px;
+    padding: 0 4px;
+  }
+
+  .header > h1 {
+    font-size: 34px;
+    line-height: 41px;
+  }
+}
+
+.proxy-item {
+  border-radius: 10px;
+  box-shadow: none;
+  transition: background-color 200ms ease;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.tags li {
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+@mixin apple-light-theme {
+
+  html {
+    background: #f2f2f7;
+  }
+
+  .app.not-clashx {
+    background: #f2f2f7;
+  }
+
+  .card {
+    background-color: #fff;
+    box-shadow: none;
+  }
+
+  .header > h1 {
+    color: #000;
+    font-weight: 400;
+  }
+
+  .overview-stat-value {
+    color: #000;
+  }
+
+  .overview-stat-label {
+    color: #8e8e93;
+  }
+
+  .statistics-page .statistics-month,
+  .statistics-page .statistics-panel-title {
+    color: #8e8e93;
+  }
+
+  .statistics-page .statistics-row {
+    border-bottom-color: rgba(60, 60, 67, 0.12);
+  }
+
+  .statistics-page .statistics-rank {
+    color: #007aff;
+  }
+
+  .proxy-item {
+    background: #fff;
+    border: 0.5px solid rgba(60, 60, 67, 0.12);
+
+    &:hover {
+      background: #f2f2f7;
+    }
+  }
+
+  .logs-card.card {
+    background-color: #fff;
+    padding: 0;
+    border: none;
+  }
+
+  .logs-panel {
+    color: #636366;
+  }
+
+  .sidebar-menu .item > a.active {
+    background: #007aff;
+    box-shadow: none;
+  }
+
+}
+
+html[data-theme="light"] {
+  @include apple-light-theme;
+}
+
+html[data-theme="auto"] {
+  @media (prefers-color-scheme: light) {
+    @include apple-light-theme;
+  }
+}
+
+@mixin apple-dark-theme {
+
+  html,
+  .app.not-clashx,
+  .page-container {
+    background: #000;
+  }
+
+  .card {
+    background-color: #1c1c1e;
+    box-shadow: none;
+    border: 0.5px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .connections-card.card {
+    background-color: #1c1c1e;
+    border: none;
+  }
+
+  .connections-card .connections-th {
+    background-color: #1c1c1e;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+    color: #8e8e93;
+    font-weight: 500;
+    font-size: 12px;
+  }
+
+  .connections-card .connections-block {
+    background: transparent;
+    color: #fff;
+  }
+
+  .connections-card .connections-block.fixed {
+    background-color: #1c1c1e;
+  }
+
+  .connections-card .connections-block.completed {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .connections-card tbody tr {
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .header > h1 {
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .connections-filter,
+  .proxies-speed-test,
+  .modal-mask .modal .modal-title {
+    text-shadow: none;
+    color: #0a84ff;
+  }
+
+  .overview-stat.card {
+    background: #2c2c2e;
+    border: 0.5px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .overview-stat-label {
+    color: #8e8e93;
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .overview-stat-value {
+    color: #fff;
+    font-size: 22px;
+  }
+
+  .statistics-page .statistics-month,
+  .statistics-page .statistics-panel-title {
+    color: #8e8e93;
+  }
+
+  .statistics-page .statistics-row {
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .statistics-page .statistics-rank {
+    color: #0a84ff;
+  }
+
+  .statistics-page .statistics-empty {
+    color: #636366;
+  }
+
+  .overview-chart-legend {
+    color: #8e8e93;
+  }
+
+  .overview-chart-up-line {
+    stroke: #0a84ff;
+  }
+
+  .overview-chart-legend-up::before {
+    background: #0a84ff;
+  }
+
+  .proxy-item {
+    background: #2c2c2e;
+    border: 0.5px solid rgba(255, 255, 255, 0.06);
+
+    .proxy-name {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .proxy-delay {
+      color: #8e8e93;
+    }
+
+    &:hover {
+      background: #3a3a3c;
+    }
+  }
+
+  .proxy-provider-item,
+  .rule-provider-item {
+    box-shadow: none;
+  }
+
+  .tags li {
+    border-color: #48484a;
+    color: #aeaeb2;
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .tags .tags-selected {
+    background: #0a84ff;
+    border-color: #0a84ff;
+    color: #fff;
+  }
+
+  .sidebar-menu .item > a {
+    color: #8e8e93;
+    font-weight: 500;
+  }
+
+  .sidebar-menu .item > a.active {
+    background: #0a84ff;
+    color: #fff;
+    box-shadow: none;
+  }
+
+  .clash-iconfont {
+    color: #0a84ff;
+    text-shadow: none;
+  }
+
+  .settings-card .label,
+  .settings-card .external-controller {
+    color: #fff;
+  }
+
+  .settings-card .external-controller.modify-btn {
+    color: #0a84ff;
+  }
+
+  .sidebar-theme-trigger {
+    color: #bebebe;
+  }
+
+  .sidebar-theme-menu {
+    background: #111;
+    color: #ddd;
+    border-color: #555;
+  }
+
+  .sidebar-theme-menu-item {
+    &:hover,
+    &:focus-visible {
+      background: #0a84ff;
+      color: #f7f7f7;
+    }
+  }
+
+  .logs-card.card {
+    background-color: #1c1c1e;
+    padding: 0;
+    border: none;
+  }
+
+  .logs-panel {
+    background: transparent;
+    border-radius: 0;
+    color: #aeaeb2;
+  }
+
+  .button-select .button-select-options.actived {
+    box-shadow: none;
+  }
+
+  .tag {
+    border-color: #48484a;
+    color: #aeaeb2;
+    background: #2c2c2e;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar-menu .item > a {
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 11px;
+    }
+
+    .sidebar-menu .item > a.active {
+      background: rgba(10, 132, 255, 0.22);
+      color: #0a84ff;
+    }
+  }
+
+}
+
+html[data-theme="dark"] {
+  @include apple-dark-theme;
+}
+
+html[data-theme="auto"] {
+  @media (prefers-color-scheme: dark) {
+    @include apple-dark-theme;
+  }
+}
